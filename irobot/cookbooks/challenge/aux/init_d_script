@@ -1,0 +1,45 @@
+#!/bin/bash
+
+start() {
+  if [ -e /home/ubuntu/challenge/pid ]
+  then
+    echo "Service already running" 
+  else
+    sudu -u ubuntu /home/ubuntu/challenge/server1 &
+    echo $! >> /home/ubuntu/challenge/pid
+    
+    sudu -u ubuntu /home/ubuntu/challenge/server2 &
+    echo $! >> /home/ubuntu/challenge/pid
+
+  fi
+}
+
+stop() {
+  if [ -e /home/ubuntu/challenge/pid ]
+  then
+    cat /home/ubuntu/challenge/pid | xargs kill -9
+  fi
+  
+  rm -f /home/ubuntu/challenge/pid
+  
+}
+
+
+case "$1" in
+  start)
+	start
+	;;
+	stop)
+	stop
+	;;
+	restart)
+	stop
+	start
+	;;
+  *)
+	echo "Usage: {start|stop|restart}"
+	exit 1
+	;;
+esac
+
+exit $?

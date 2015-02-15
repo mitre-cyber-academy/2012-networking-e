@@ -1,0 +1,4 @@
+name: "Dr. Lanning's Last Words"
+description: |
+  Detective Spooner, Dr. Lanning was found outside of his office after a rapid deceleration caused by the pavement outside. We do not believe this was a suicide, unfortunately he is in no state to tell us and all of the security cameras in his office seem to be broken. Luckily he left us a service running at $server that is listening on the port of the current year. We tried talking to it but our guys are at a loss. 
+flag: "MCA-DE5ED7DE"
